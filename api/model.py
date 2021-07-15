@@ -8,7 +8,6 @@ import networkx as nx
 
 def read_clean_text(text):
     text = text.split('.')
-
     sentences = []
 
     for sentence in text:
