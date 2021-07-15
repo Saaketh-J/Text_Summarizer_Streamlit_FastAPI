@@ -26,4 +26,4 @@ The Docker instance is configured to point the API to the host's port 8000
 
 Go to 'localhost:8000/docs' to see:
 
-![Screenshot of FastAPI docs](images\FastAPI_Docs.png?raw=true "FastAPI docs")
+![Screenshot of FastAPI docs](images/FastAPI_Docs.png?raw=true "FastAPI docs")
