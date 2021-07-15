@@ -13,7 +13,6 @@ def read_clean_text(text):
 
     for sentence in text:
         sentences.append(sentence.replace("[^a-zA-Z]", " ").split(" "))
-    print(sentences)
     sentences.pop()
     return sentences
 
@@ -54,6 +53,12 @@ def similarity_matrix(sentences, stop_words):
 
 
 def generate_summary(text, sentence_num):
+    if(text != ""):
+        if(len(read_clean_text(text)) >= sentence_num):
+            pass
+        else:
+            return "Please choose a summarization length lesser than the number of available sentences."
+
     stop_words = stopwords.words('english')
     summarized_text = []
 
@@ -74,15 +79,18 @@ def generate_summary(text, sentence_num):
     return ".".join(summarized_text) + "."
 
 
-text_input = st.text_area("Type a text to summarize")
-num_sentences = st.slider(
-    "How many sentences would you like the summary to be?", 0, 10)
-summarize = st.button("Summarize")
+def create_streamlit_app():
+    text_input = st.text_area("Type a text to summarize")
+    num_sentences = st.slider(
+        "How many sentences would you like the summary to be?", 0, 10)
+    summarize = st.button("Summarize")
 
-if(text_input != "" and summarize):
-    if(len(read_clean_text(text_input)) >= num_sentences):
-        summary = generate_summary(text_input, num_sentences)
-        st.markdown(summary)
-    else:
-        st.text(
-            "Please choose a summarization length lesser than the number of available sentences.")
+    if(text_input != "" and summarize):
+        if(len(read_clean_text(text_input)) >= num_sentences):
+            summary = generate_summary(text_input, num_sentences)
+            st.markdown(summary)
+        else:
+            st.text(
+                "Please choose a summarization length lesser than the number of available sentences.")
+
+# create_streamlit_app()
