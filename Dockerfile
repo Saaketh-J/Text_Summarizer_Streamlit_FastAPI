@@ -1,6 +1,7 @@
 FROM python:3.7
 
 RUN pip install streamlit st-annotated-text nltk numpy networkx fastapi pydantic typing uvicorn
+RUN python -m nltk.downloader stopwords
 
 COPY ./api /api
 
