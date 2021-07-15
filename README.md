@@ -1,4 +1,4 @@
-# Summarizer_Streamlit
+# Text_Summarizer_Streamlit_FastAPI
 
 A small python app that uses extractive summarization (cosine similarity of vectors of sentences) to summarize long texts.
 
