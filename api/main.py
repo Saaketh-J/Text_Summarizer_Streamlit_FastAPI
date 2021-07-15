@@ -1,4 +1,4 @@
-from app import *
+from model import generate_summary
 from copy import deepcopy
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -27,3 +27,8 @@ def get_summary(user_request: UserRequestIn):
     summary = generate_summary(text, num_sentences)
 
     return {"summarized_text": summary}
+
+
+@app.get("/")
+def hello():
+    return {"message": "Hit /docs for documentation"}
